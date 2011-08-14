@@ -211,7 +211,7 @@ public class XMLRecordReader extends RecordReader<Text, Text>{
         if (b == -1) break;
 
         byte c = (byte) b; // this assumes eight-bit matching. OK with UTF-8
-        if (c == cpat[m]) {
+        if (c == cpat[m] || (cpat[m] == '>' && c == ' ')) {
           m++;
           if (m == msup) {
             match = true;
